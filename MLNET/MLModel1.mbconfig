@@ -1,0 +1,112 @@
+﻿{
+  "TrainingTime": 60,
+  "Scenario": "Classification",
+  "DataSource": {
+    "Type": "TabularFile",
+    "Version": 1,
+    "FilePath": "C:\\Users\\Admin\\Downloads\\omg.tsv",
+    "Delimiter": "\t",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "Text",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 2
+      },
+      {
+        "ColumnName": "IsRacist",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Boolean",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 2
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 1,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 0,
+        "Type": "Trial",
+        "TrainerName": "LbfgsLogisticRegressionBinary",
+        "Score": 0.904,
+        "RuntimeInSeconds": 0.265
+      },
+      {
+        "Version": 0,
+        "Type": "Trial",
+        "TrainerName": "LbfgsLogisticRegressionBinary",
+        "Score": 0.904,
+        "RuntimeInSeconds": 0.314
+      },
+      {
+        "Version": 0,
+        "Type": "Trial",
+        "TrainerName": "LbfgsLogisticRegressionBinary",
+        "Score": 0.904,
+        "RuntimeInSeconds": 0.304
+      },
+      {
+        "Version": 0,
+        "Type": "Trial",
+        "TrainerName": "LbfgsLogisticRegressionBinary",
+        "Score": 0.904,
+        "RuntimeInSeconds": 0.309
+      },
+      {
+        "Version": 0,
+        "Type": "Trial",
+        "TrainerName": "LbfgsLogisticRegressionBinary",
+        "Score": 0.904,
+        "RuntimeInSeconds": 0.272
+      }
+    ],
+    "Pipeline": {
+      "parameter": {
+        "0": {
+          "InputColumnName": "Text",
+          "OutputColumnName": "Text"
+        },
+        "1": {
+          "InputColumnNames": [
+            "Text"
+          ],
+          "OutputColumnName": "Features"
+        },
+        "2": {
+          "OutputColumnNames": [
+            "Features"
+          ],
+          "InputColumnNames": [
+            "Features"
+          ]
+        },
+        "3": {
+          "L1Regularization": 3.34258986,
+          "L2Regularization": 4.379133,
+          "LabelColumnName": "IsRacist",
+          "FeatureColumnName": "Features"
+        }
+      },
+      "estimators": [
+        "FeaturizeText",
+        "Concatenate",
+        "NormalizeMinMax",
+        "LbfgsLogisticRegressionBinary"
+      ]
+    },
+    "MetricName": "Accuracy"
+  },
+  "Type": "TrainingConfig",
+  "Version": 2
+}
