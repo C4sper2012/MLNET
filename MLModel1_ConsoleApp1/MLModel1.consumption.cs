@@ -10,22 +10,6 @@ namespace MLModel1_ConsoleApp1
     public partial class MLModel1
     {
         /// <summary>
-        /// model input class for MLModel1.
-        /// </summary>
-        #region model input class
-        public class ModelInput
-        {
-            [ColumnName(@"Text")]
-            public string Text { get; set; }
-
-            [ColumnName(@"IsRacist")]
-            public bool IsRacist { get; set; }
-
-        }
-
-        #endregion
-
-        /// <summary>
         /// model output class for MLModel1.
         /// </summary>
         #region model output class

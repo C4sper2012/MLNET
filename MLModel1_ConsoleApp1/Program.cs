@@ -6,7 +6,7 @@ using MLModel1_ConsoleApp1;
 string text = Console.ReadLine();
 
 // Create single instance of sample data from first line of dataset for model input
-MLModel1.ModelInput sampleData = new MLModel1.ModelInput()
+MLModel1.ModelInput sampleData = new()
 {
     Text = text,
 };
