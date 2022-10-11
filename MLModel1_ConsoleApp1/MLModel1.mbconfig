@@ -1,5 +1,5 @@
 ﻿{
-  "TrainingTime": 60,
+  "TrainingTime": 1200,
   "Scenario": "Classification",
   "DataSource": {
     "Type": "TabularFile",
@@ -38,37 +38,37 @@
       {
         "Version": 0,
         "Type": "Trial",
-        "TrainerName": "LbfgsLogisticRegressionBinary",
-        "Score": 0.904,
-        "RuntimeInSeconds": 0.265
+        "TrainerName": "LightGbmBinary",
+        "Score": 0.912,
+        "RuntimeInSeconds": 0.667
       },
       {
         "Version": 0,
         "Type": "Trial",
-        "TrainerName": "LbfgsLogisticRegressionBinary",
-        "Score": 0.904,
-        "RuntimeInSeconds": 0.314
+        "TrainerName": "LightGbmBinary",
+        "Score": 0.912,
+        "RuntimeInSeconds": 0.687
       },
       {
         "Version": 0,
         "Type": "Trial",
-        "TrainerName": "LbfgsLogisticRegressionBinary",
-        "Score": 0.904,
-        "RuntimeInSeconds": 0.304
+        "TrainerName": "LightGbmBinary",
+        "Score": 0.912,
+        "RuntimeInSeconds": 0.691
       },
       {
         "Version": 0,
         "Type": "Trial",
-        "TrainerName": "LbfgsLogisticRegressionBinary",
-        "Score": 0.904,
-        "RuntimeInSeconds": 0.309
+        "TrainerName": "LightGbmBinary",
+        "Score": 0.912,
+        "RuntimeInSeconds": 0.658
       },
       {
         "Version": 0,
         "Type": "Trial",
-        "TrainerName": "LbfgsLogisticRegressionBinary",
-        "Score": 0.904,
-        "RuntimeInSeconds": 0.272
+        "TrainerName": "LightGbmBinary",
+        "Score": 0.912,
+        "RuntimeInSeconds": 0.689
       }
     ],
     "Pipeline": {
@@ -84,16 +84,15 @@
           "OutputColumnName": "Features"
         },
         "2": {
-          "OutputColumnNames": [
-            "Features"
-          ],
-          "InputColumnNames": [
-            "Features"
-          ]
-        },
-        "3": {
-          "L1Regularization": 3.34258986,
-          "L2Regularization": 4.379133,
+          "NumberOfLeaves": 4,
+          "MinimumExampleCountPerLeaf": 20,
+          "LearningRate": 0.56533099013873389,
+          "NumberOfTrees": 4,
+          "SubsampleFraction": 0.38150395989794389,
+          "MaximumBinCountPerFeature": 164,
+          "FeatureFraction": 0.98058452528087547,
+          "L1Regularization": 2E-10,
+          "L2Regularization": 0.55766160466544346,
           "LabelColumnName": "IsRacist",
           "FeatureColumnName": "Features"
         }
@@ -101,8 +100,7 @@
       "estimators": [
         "FeaturizeText",
         "Concatenate",
-        "NormalizeMinMax",
-        "LbfgsLogisticRegressionBinary"
+        "LightGbmBinary"
       ]
     },
     "MetricName": "Accuracy"
